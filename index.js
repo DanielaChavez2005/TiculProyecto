@@ -4,22 +4,22 @@ const datosRoutes = require('./routes/datos');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-// se crea el server
+// Se crea el server
 const app = express();
 
-// ✅ Cargar variables
+// Cargar variables
 dotenv.config({ path: './variables.env' });
 
-// ✅ Conexión a DB
+// Conexión a DB
 conectarDB();
 
-// ✅ Habilitar CORS ANTES de las rutas
+// Habilitar CORS ANTES de las rutas
 app.use(cors());
 
-// ✅ Habilitar body parser JSON
+// Habilitar body parser JSON
 app.use(express.json());
 
-// ✅ Rutas de la API
+// Rutas de la API
 app.use('/api', datosRoutes);
 
 // Ruta de prueba
@@ -28,7 +28,9 @@ app.get('/', (req, res) => {
 });
 
 // Servidor escuchando
-app.listen(4000, () => {
-  console.log('el servidor esta corriendo como flash sin estreyarse');
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
 

@@ -20,4 +20,9 @@ router.get('/alfareros', async (req, res) => {
   res.json(alfareros);
 });
 
+router.get('/hoteles', async (req, res) => {
+  const hoteles = await Hotel.find();
+  res.json(hoteles);
+});
+
 module.exports = router;
