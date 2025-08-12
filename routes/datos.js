@@ -4,6 +4,7 @@ const router = express.Router();
 const Lugar = require('../models/lugar');
 const Artesano = require('../models/artesano');
 const Alfarero = require('../models/alfarero');
+const Hotel = require('../models/hotel');
 
 router.get('/lugares', async (req, res) => {
   const lugares = await Lugar.find();
